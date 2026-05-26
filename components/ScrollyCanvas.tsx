@@ -27,34 +27,16 @@ function drawCover(
 
   let drawW: number, drawH: number, offsetX: number, offsetY: number
 
-  const isPortrait = logicalH > logicalW
-
-  if (isPortrait) {
-    // Portrait (mobile): Use contain to avoid cropping the sides heavily
-    if (imgRatio > canvasRatio) {
-      drawW = logicalW
-      drawH = drawW / imgRatio
-      offsetX = 0
-      offsetY = (logicalH - drawH) / 2
-    } else {
-      drawH = logicalH
-      drawW = drawH * imgRatio
-      offsetX = (logicalW - drawW) / 2
-      offsetY = 0
-    }
+  if (imgRatio > canvasRatio) {
+    drawH = logicalH
+    drawW = drawH * imgRatio
+    offsetX = (logicalW - drawW) / 2
+    offsetY = 0
   } else {
-    // Landscape (desktop): Use cover
-    if (imgRatio > canvasRatio) {
-      drawH = logicalH
-      drawW = drawH * imgRatio
-      offsetX = (logicalW - drawW) / 2
-      offsetY = 0
-    } else {
-      drawW = logicalW
-      drawH = drawW / imgRatio
-      offsetX = 0
-      offsetY = (logicalH - drawH) / 2
-    }
+    drawW = logicalW
+    drawH = drawW / imgRatio
+    offsetX = 0
+    offsetY = (logicalH - drawH) / 2
   }
 
   ctx.drawImage(img, offsetX, offsetY, drawW, drawH)
@@ -67,12 +49,12 @@ interface ScrollyCanvasProps {
 }
 
 export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
-  const canvasRef      = useRef<HTMLCanvasElement>(null)
-  const imagesRef      = useRef<(HTMLImageElement | null)[]>(new Array(TOTAL_FRAMES).fill(null))
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const imagesRef = useRef<(HTMLImageElement | null)[]>(new Array(TOTAL_FRAMES).fill(null))
   const currentFrameRef = useRef(0)
-  const rafRef         = useRef<number | null>(null)
-  const lastTimeRef    = useRef<number>(0)
-  const isPlayingRef   = useRef(false)
+  const rafRef = useRef<number | null>(null)
+  const lastTimeRef = useRef<number>(0)
+  const isPlayingRef = useRef(false)
 
   // Logical (CSS) pixel dimensions
   const logicalW = useRef(0)
@@ -85,7 +67,7 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
   // ── Render a specific frame ─────────────────────────────────────────────
   const renderFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current
-    const img    = imagesRef.current[frameIndex]
+    const img = imagesRef.current[frameIndex]
     if (!canvas || !img || !img.complete || !img.naturalWidth) return
 
     const ctx = canvas.getContext('2d', { alpha: false })
@@ -105,8 +87,8 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
     let lastH = window.innerHeight
 
     const handleResize = (force = false) => {
-      const w   = window.innerWidth
-      const h   = window.innerHeight
+      const w = window.innerWidth
+      const h = window.innerHeight
 
       // On mobile, ignore vertical resizes caused by URL bar showing/hiding
       const isMobile = window.innerWidth <= 768
@@ -121,9 +103,9 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
       logicalW.current = w
       logicalH.current = h
 
-      canvas.width  = w * dpr
+      canvas.width = w * dpr
       canvas.height = h * dpr
-      canvas.style.width  = `${w}px`
+      canvas.style.width = `${w}px`
       canvas.style.height = `${h}px`
 
       const ctx = canvas.getContext('2d', { alpha: false })
@@ -136,7 +118,7 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
     }
 
     handleResize(true)
-    
+
     const onResize = () => handleResize(false)
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
@@ -172,7 +154,7 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
       loadedCount++
       const progress = loadedCount / TOTAL_FRAMES
       setLoadProgress(progress)
-      
+
       if (index === 0) {
         setFirstFrameReady(true)
       }
@@ -191,7 +173,7 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
       }
       const img = new Image()
       const idx = i
-      img.onload  = () => onFrameLoad(idx, img)
+      img.onload = () => onFrameLoad(idx, img)
       img.onerror = () => onFrameError(idx)
       img.src = getFramePath(i)
     }

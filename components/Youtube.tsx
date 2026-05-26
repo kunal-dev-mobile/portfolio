@@ -66,10 +66,11 @@ export function Youtube() {
             transition={{ duration: 0.7, delay: 0.25 }}
             className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 space-y-4"
           >
-            <p>Hello guys. I am Kunal Bhardwaj, From Ghaziabad (UP).</p>
-            <p>Welcome to my channel <strong>&apos;Drive with Kunal&apos;</strong>.</p>
             <p>
-              In this channel, you will get updates regarding cars and bikes and many more. Thank you for being here.
+              Welcome to <strong>&apos;Drive with Kunal&apos;</strong> — my creative outlet where a deep passion for the automotive world comes to life.
+            </p>
+            <p>
+              Beyond writing code, I produce high-quality, engaging videos covering comprehensive car and bike reviews, industry updates, and motoring experiences for a growing community of automotive enthusiasts.
             </p>
           </motion.div>
 
