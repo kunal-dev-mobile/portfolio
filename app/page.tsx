@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence, useSpring, useMotionValue } from 'framer-motion'
 import { ScrollyCanvas } from '@/components/ScrollyCanvas'
 import { Overlay } from '@/components/Overlay'
@@ -271,7 +271,6 @@ function ProgressBar({ progress }: { progress: number }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Page() {
-  const containerRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
 
   const handleScroll = useCallback(() => {
@@ -300,10 +299,10 @@ export default function Page() {
       <Navbar scrollProgress={scrollProgress} />
 
       {/* ── Hero: Autoplay Frame Animation ──────────────────────── */}
-      <div ref={containerRef} className="relative">
+      <div className="relative">
         <ScrollyCanvas />
         <div className="absolute inset-0 pointer-events-none z-10">
-          <Overlay containerRef={containerRef} />
+          <Overlay />
         </div>
       </div>
 

@@ -2,11 +2,7 @@
 
 import { motion } from 'framer-motion'
 
-interface OverlayProps {
-  containerRef: React.RefObject<HTMLDivElement>
-}
-
-export function Overlay({ containerRef }: OverlayProps) {
+export function Overlay() {
   return (
     <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden flex items-center justify-center text-center px-6">
       <motion.div
