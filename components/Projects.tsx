@@ -316,7 +316,7 @@ export function Projects() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="text-gray-500 text-base max-w-sm leading-relaxed lg:text-right"
             >
-              A curated selection pushing the boundaries of what's possible on mobile and web.
+              A curated selection pushing the boundaries of what&apos;s possible on mobile and web.
             </motion.p>
           </div>
         </div>

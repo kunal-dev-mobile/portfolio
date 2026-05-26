@@ -185,7 +185,7 @@ export function Contact() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-[clamp(2.8rem,7vw,5.5rem)] font-black text-white leading-[0.95] mb-6"
           >
-            Let's build something{' '}
+            Let&apos;s build something{' '}
             <span
               style={{
                 backgroundImage: 'linear-gradient(135deg, #00d4ff, #4ecdc4)',
@@ -204,8 +204,8 @@ export function Contact() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed"
           >
-            Whether it's a project, a collaboration, or just a conversation about
-            tech — I'm always open to connecting.
+            Whether it&apos;s a project, a collaboration, or just a conversation about
+            tech — I&apos;m always open to connecting.
           </motion.p>
         </div>
 

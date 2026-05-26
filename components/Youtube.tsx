@@ -67,7 +67,7 @@ export function Youtube() {
             className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 space-y-4"
           >
             <p>Hello guys. I am Kunal Bhardwaj, From Ghaziabad (UP).</p>
-            <p>Welcome to my channel <strong>'Drive with Kunal'</strong>.</p>
+            <p>Welcome to my channel <strong>&apos;Drive with Kunal&apos;</strong>.</p>
             <p>
               In this channel, you will get updates regarding cars and bikes and many more. Thank you for being here.
             </p>
