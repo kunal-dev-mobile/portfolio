@@ -19,56 +19,76 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Real-time Chat Application',
-    description:
-      'Production-grade chat with real-time messaging, voice calls, and file sharing. Built for scale with WebRTC peer-to-peer connections and Firebase Cloud Messaging.',
-    tech: ['Flutter', 'Firebase', 'WebRTC', 'Dart'],
-    year: '2024',
+    title: 'KidsChaupal',
+    description: 'KidsChaupal is a discovery platform which introduces your child to a world of opportunities, trusted by over thousands of parents. It brings together mentors and students to make learning happen effectively, without eliminating the fun quotient.',
+    tech: ['Dart', 'Flutter'],
+    year: '2023',
     category: 'Mobile App',
     accentColor: '#00d4ff',
     accentColorDim: 'rgba(0,212,255,0.12)',
     number: '01',
-    link: '#',
+    link: 'https://play.google.com/store/apps/details?id=com.kidschaupal.app&hl=en_IN',
   },
   {
     id: 2,
-    title: 'WhatsApp-style Video Calling',
-    description:
-      'Full-featured video calling with screen sharing, group calls, and end-to-end encryption. Achieved sub-200ms latency in production.',
-    tech: ['Flutter', 'WebRTC', 'Socket.io', 'Node.js'],
+    title: 'DigiSakshar',
+    description: 'DigiSakshar is a free to use app for all with the aim to learn and be digitally literate. DigiSakshar gives an opportunity to access, explore and use the power of internet to avail all the digital services and knowledge available at the click of a button.',
+    tech: ['Dart', 'Flutter'],
     year: '2023',
     category: 'Mobile App',
     accentColor: '#4ecdc4',
     accentColorDim: 'rgba(78,205,196,0.12)',
     number: '02',
-    link: '#',
+    link: 'https://play.google.com/store/apps/details?id=com.vfnf.digisakshar&hl=en_IN',
   },
   {
     id: 3,
-    title: 'Full Stack Admin Dashboard',
-    description:
-      'Comprehensive analytics platform with real-time data visualization, user management, and automated reporting. Handles 10k+ daily active users.',
-    tech: ['Next.js', 'Node.js', 'Express.js', 'PostgreSQL'],
+    title: 'Credvisor',
+    description: 'Credvisor is a financial lead-sharing and business networking platform that connects agents and service providers offering financial products. The app enables users to share client requirements, track lead progress, and manage communication.',
+    tech: ['Dart', 'Flutter'],
     year: '2024',
-    category: 'Web App',
+    category: 'Mobile App',
     accentColor: '#8b5cf6',
     accentColorDim: 'rgba(139,92,246,0.12)',
     number: '03',
-    link: '#',
+    link: 'https://apps.apple.com/in/app/credvisor/id6744828115',
   },
   {
     id: 4,
-    title: 'Automotive Content Platform',
-    description:
-      'Content management system for automotive reviews with video integration, SEO optimization, and analytics — powering the "Drive with Kunal" channel.',
-    tech: ['Next.js', 'Headless CMS', 'Video API', 'Tailwind'],
-    year: '2023',
-    category: 'Web Platform',
+    title: 'Mattress Fab',
+    description: 'Mattress Fabric App brings you a wide range of high-quality mattress fabrics and textile materials directly from trusted manufacturers. Our platform is designed to make fabric selection, product browsing, and ordering simple, fast, and reliable.',
+    tech: ['Dart', 'Flutter'],
+    year: '2024',
+    category: 'Mobile App',
     accentColor: '#f43f5e',
     accentColorDim: 'rgba(244,63,94,0.12)',
     number: '04',
-    link: '#',
+    link: 'https://apps.apple.com/in/app/mattress-fab/id6759448291',
   },
+  {
+    id: 5,
+    title: 'Addon Pharma ERP',
+    description: 'Manage your pharma wholesale business smarter with Addon Pharma ERP — A complete billing, accounting, and inventory solution designed specifically for pharmaceutical wholesalers and distributors.',
+    tech: ['Dart', 'Flutter'],
+    year: '2025',
+    category: 'Mobile App',
+    accentColor: '#f59e0b',
+    accentColorDim: 'rgba(245,158,11,0.12)',
+    number: '05',
+    link: 'https://play.google.com/store/apps/details?id=com.addonpharma.erp&hl=en',
+  },
+  {
+    id: 6,
+    title: 'Wheelboard',
+    description: 'Wheelboard is redefining the India’s commercial transport industry, by empowering Fleet Owners, Professionals, and Automotive Service Providers with a unified digital platform. Smart Operations, Sustainable growth and Greater Value for all stakeholders.',
+    tech: ['Dart', 'Flutter'],
+    year: '2025',
+    category: 'Mobile App',
+    accentColor: '#10b981',
+    accentColorDim: 'rgba(16,185,129,0.12)',
+    number: '06',
+    link: 'https://play.google.com/store/apps/details?id=com.wheelboard.app&hl=en',
+  }
 ]
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -86,8 +106,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       onMouseLeave={() => setHovered(false)}
       className="group relative"
     >
-      <div
-        className="relative rounded-3xl overflow-hidden h-full"
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative rounded-3xl overflow-hidden h-full block"
         style={{
           background: hovered
             ? `linear-gradient(145deg, ${project.accentColorDim}, rgba(255,255,255,0.04))`
@@ -209,7 +232,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             ))}
           </div>
         </div>
-      </div>
+      </a>
     </motion.div>
   )
 }
@@ -217,9 +240,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 // ─── Stats Strip ─────────────────────────────────────────────────────────────
 const stats = [
   { value: '4+', label: 'Years' },
-  { value: '20+', label: 'Apps Shipped' },
-  { value: '50K+', label: 'YT Subscribers' },
-  { value: '99%', label: 'Client Satisfaction' },
+  { value: '12+', label: 'Apps Shipped' },
+  { value: '10+', label: 'Tech Stack' },
+  { value: '100%', label: 'Dedication' },
 ]
 
 export function Projects() {
@@ -340,51 +363,6 @@ export function Projects() {
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
-
-        {/* ── CTA ───────────────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-20 flex justify-center"
-        >
-          <a
-            href="https://github.com/kunalbhardwaj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-8 py-4 rounded-2xl text-sm font-medium text-gray-400 hover:text-white transition-all duration-400"
-            style={{
-              border: '1px solid rgba(255,255,255,0.08)',
-              background: 'rgba(255,255,255,0.03)',
-              backdropFilter: 'blur(12px)',
-            }}
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="opacity-60 group-hover:opacity-100 transition-opacity"
-            >
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-            </svg>
-            <span>View all on GitHub</span>
-            <svg
-              className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </a>
-        </motion.div>
       </div>
     </section>
   )

@@ -6,6 +6,7 @@ import { ScrollyCanvas } from '@/components/ScrollyCanvas'
 import { Overlay } from '@/components/Overlay'
 import { Projects } from '@/components/Projects'
 import { Experience } from '@/components/Experience'
+import { Youtube } from '@/components/Youtube'
 import { Contact } from '@/components/Contact'
 
 // ─── Custom Cursor ────────────────────────────────────────────────────────────
@@ -116,7 +117,7 @@ function Navbar({ scrollProgress }: { scrollProgress: number }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const showBg = scrollProgress > 0.015
 
-  const navLinks = ['Work', 'Experience', 'Contact']
+  const navLinks = ['Work', 'Experience', 'YouTube', 'Contact']
 
   return (
     <nav
@@ -168,7 +169,7 @@ function Navbar({ scrollProgress }: { scrollProgress: number }) {
           ))}
 
           <motion.a
-            href="mailto:contact@kunalbhardwaj.com"
+            href="mailto:kunal.developer1@gmail.com"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0,212,255,0.35)' }}
             whileTap={{ scale: 0.97 }}
             className="text-[12px] font-semibold px-5 py-2.5 rounded-xl text-[#0a0d14] tracking-wide"
@@ -233,7 +234,7 @@ function Navbar({ scrollProgress }: { scrollProgress: number }) {
                 </motion.a>
               ))}
               <motion.a
-                href="mailto:contact@kunalbhardwaj.com"
+                href="mailto:kunal.developer1@gmail.com"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
@@ -309,6 +310,7 @@ export default function Page() {
       {/* ── Below-fold sections ──────────────────────────────────── */}
       <Projects />
       <Experience />
+      <Youtube />
       <Contact />
     </main>
   )

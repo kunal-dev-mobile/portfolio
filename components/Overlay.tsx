@@ -164,7 +164,7 @@ export function Overlay({ containerRef }: OverlayProps) {
             transition={{ delay: 0.85, duration: 0.8 }}
             className="text-base lg:text-lg text-gray-500 font-light tracking-widest mt-2"
           >
-            Flutter · Android · Full Stack · Content Creator
+            Flutter · Android (Java/Kotlin) · Mobile Architecture
           </motion.p>
         </div>
       </ParallaxSection>
@@ -210,7 +210,7 @@ export function Overlay({ containerRef }: OverlayProps) {
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {['Flutter', 'Firebase', 'Node.js', 'WebRTC', 'Dart'].map((s) => (
+            {['Flutter', 'Dart', 'Java', 'Kotlin', 'Firebase'].map((s) => (
               <span
                 key={s}
                 className="px-3 py-1 text-[11px] font-semibold rounded-full tracking-wider"
@@ -268,7 +268,7 @@ export function Overlay({ containerRef }: OverlayProps) {
           </p>
 
           <div className="flex flex-wrap gap-2 justify-end">
-            {['Next.js', 'Framer Motion', 'Tailwind', 'TypeScript', 'Figma'].map((s) => (
+            {['Provider', 'GetX', 'REST APIs', 'SQLite', 'Firestore'].map((s) => (
               <span
                 key={s}
                 className="px-3 py-1 text-[11px] font-semibold rounded-full tracking-wider"
@@ -300,7 +300,7 @@ export function Overlay({ containerRef }: OverlayProps) {
           </div>
 
           <h2 className="text-[clamp(3.5rem,8vw,6.5rem)] font-black text-white leading-[0.95] mb-3" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-            Developer.
+            Developer
           </h2>
           <p
             className="text-[clamp(1.5rem,3vw,2.5rem)] font-black mb-6 tracking-wider"
@@ -315,7 +315,7 @@ export function Overlay({ containerRef }: OverlayProps) {
             &amp; Content Creator.
           </p>
           <p className="text-gray-600 text-sm tracking-widest">
-            4+ years · Mobile · Full Stack · YouTube
+            4+ years · Flutter · Android · Full Stack Developer
           </p>
 
           {/* Bouncing down arrow */}

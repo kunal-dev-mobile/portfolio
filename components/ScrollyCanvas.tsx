@@ -13,7 +13,7 @@ function getFramePath(index: number): string {
   return `/sequence/frame_${pad}_delay-0.066s.png`
 }
 
-// ─── Object-fit COVER using logical (CSS) dimensions ───────────────────────
+// ─── Object-fit behavior ───────────────────────
 function drawCover(
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement,
@@ -27,16 +27,34 @@ function drawCover(
 
   let drawW: number, drawH: number, offsetX: number, offsetY: number
 
-  if (imgRatio > canvasRatio) {
-    drawH = logicalH
-    drawW = drawH * imgRatio
-    offsetX = (logicalW - drawW) / 2
-    offsetY = 0
+  const isPortrait = logicalH > logicalW
+
+  if (isPortrait) {
+    // Portrait (mobile): Use contain to avoid cropping the sides heavily
+    if (imgRatio > canvasRatio) {
+      drawW = logicalW
+      drawH = drawW / imgRatio
+      offsetX = 0
+      offsetY = (logicalH - drawH) / 2
+    } else {
+      drawH = logicalH
+      drawW = drawH * imgRatio
+      offsetX = (logicalW - drawW) / 2
+      offsetY = 0
+    }
   } else {
-    drawW = logicalW
-    drawH = drawW / imgRatio
-    offsetX = 0
-    offsetY = (logicalH - drawH) / 2
+    // Landscape (desktop): Use cover
+    if (imgRatio > canvasRatio) {
+      drawH = logicalH
+      drawW = drawH * imgRatio
+      offsetX = (logicalW - drawW) / 2
+      offsetY = 0
+    } else {
+      drawW = logicalW
+      drawH = drawW / imgRatio
+      offsetX = 0
+      offsetY = (logicalH - drawH) / 2
+    }
   }
 
   ctx.drawImage(img, offsetX, offsetY, drawW, drawH)
@@ -83,11 +101,23 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const handleResize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    let lastW = window.innerWidth
+    let lastH = window.innerHeight
+
+    const handleResize = (force = false) => {
       const w   = window.innerWidth
       const h   = window.innerHeight
 
+      // On mobile, ignore vertical resizes caused by URL bar showing/hiding
+      const isMobile = window.innerWidth <= 768
+      if (!force && isMobile && w === lastW && Math.abs(h - lastH) < 150) {
+        return
+      }
+
+      lastW = w
+      lastH = h
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
       logicalW.current = w
       logicalH.current = h
 
@@ -105,9 +135,11 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
       renderFrame(currentFrameRef.current)
     }
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    handleResize(true)
+    
+    const onResize = () => handleResize(false)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
   }, [renderFrame])
 
   // ── Preload ALL frames concurrently ────────────────────────────────────
@@ -200,7 +232,7 @@ export function ScrollyCanvas({ onReady, onProgress }: ScrollyCanvasProps) {
   }, [allLoaded, renderFrame])
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#121212]">
+    <div className="relative w-full h-[100dvh] overflow-hidden bg-[#121212]">
       <canvas
         ref={canvasRef}
         className="absolute inset-0"

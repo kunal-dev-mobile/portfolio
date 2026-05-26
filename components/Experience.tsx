@@ -5,64 +5,58 @@ import { useRef } from 'react'
 
 const stats = [
   { value: '4+', label: 'Years Experience', color: '#00d4ff' },
-  { value: '20+', label: 'Apps Shipped', color: '#4ecdc4' },
-  { value: '50K+', label: 'YouTube Subs', color: '#a78bfa' },
+  { value: '12+', label: 'Apps Shipped', color: '#4ecdc4' },
+  { value: '10+', label: 'Tech Stack', color: '#a78bfa' },
   { value: '∞', label: 'Cups of Coffee', color: '#f59e0b' },
 ]
 
 const skills = [
   {
-    category: 'Mobile',
+    category: 'Languages & Core',
     color: '#00d4ff',
-    items: ['Flutter', 'Dart', 'Android (Kotlin)', 'iOS Concepts', 'Firebase'],
+    items: ['Dart', 'Java', 'Kotlin', 'Basic JavaScript', 'SQLite', 'Firestore'],
   },
   {
-    category: 'Backend',
+    category: 'Frameworks & State',
     color: '#4ecdc4',
-    items: ['Node.js', 'Express.js', 'PostgreSQL', 'REST APIs', 'WebSockets'],
+    items: ['Flutter', 'Android SDK', 'Provider', 'GetX', 'Bloc'],
   },
   {
-    category: 'Frontend',
+    category: 'APIs & Web',
     color: '#8b5cf6',
-    items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    items: ['RESTful APIs', 'GraphQL', 'Firebase', 'Node.js (Basics)'],
   },
   {
-    category: 'Tools',
+    category: 'Practices & Tools',
     color: '#f59e0b',
-    items: ['Git', 'Firebase Cloud', 'WebRTC', 'Socket.io', 'Figma'],
+    items: ['Agile/Scrum', 'CI/CD', 'Git/GitHub', 'TDD', 'Jira/Trello'],
   },
 ]
 
 const journey = [
   {
-    year: '2020',
-    title: 'Started Mobile Development',
-    detail: 'Dove deep into Android and Flutter — fell in love with the craft of mobile.',
+    year: '2022 - 2023',
+    title: 'Techweiler Softwares Pvt. Ltd.',
+    detail: 'Mobile App developer: Developed and maintained cross-platform mobile applications using Flutter (Dart), along with native development in Java and Kotlin.',
     color: '#00d4ff',
   },
   {
-    year: '2021',
-    title: 'First Production App',
-    detail: 'Shipped a real-time chat app used by 5,000+ users within 3 months of launch.',
+    year: '2023 - 2024',
+    title: 'Bluelupin Technologies Pvt. Ltd.',
+    detail: 'Flutter developer: Developed and maintained cross-platform mobile applications using Flutter, ensuring high performance and seamless user experiences on both Android and iOS platforms.',
     color: '#4ecdc4',
   },
   {
-    year: '2022',
-    title: 'Full Stack Expansion',
-    detail: 'Added Node.js, Next.js and PostgreSQL to the arsenal. Built for scale.',
+    year: '2025 - 2025',
+    title: 'Techweiler Softwares Pvt. Ltd.',
+    detail: 'Flutter developer: Developed and maintained high-performance, cross-platform mobile applications using Flutter and Dart, ensuring robust functionality.',
     color: '#8b5cf6',
   },
   {
-    year: '2023',
-    title: 'YouTube Channel Launch',
-    detail: 'Started "Drive with Kunal" — automotive content meets developer storytelling.',
+    year: '2025 - Present',
+    title: 'Addon Shareware Private Limited',
+    detail: 'Sr. Software engineer: Leading Flutter application development for Android & iOS. Implementing scalable architecture using MVVM and GetX.',
     color: '#f59e0b',
-  },
-  {
-    year: '2024',
-    title: 'Senior Developer',
-    detail: 'Leading teams, architecting systems, mentoring developers at every level.',
-    color: '#f43f5e',
   },
 ]
 
